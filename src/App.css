@@ -16,6 +16,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.card {
-  padding: 1em;
+.standout {
+  box-shadow: rgba(0,0,0,0.16), rgb(51,51,51) 0px 0px 0px 3px;
 }

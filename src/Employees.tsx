@@ -4,6 +4,8 @@ import maleProfile from '/home/henrike32/team-manage-app/src/assets/images/maleP
 
 const Employees = () => {
 
+  const [selectedTeam, setTeam] = useState("TeamB");
+
   const [employees, setEmployees] = useState([{
     id: 1,
     fullName: "Bob Jones",
@@ -23,7 +25,7 @@ const Employees = () => {
     fullName: "Alice Johnson",
     designation: "JavaScript Developer",
     gender: "female",
-    teamName: "TeamB"
+    teamName: "TeamA"
   },
   {
     id: 4,
@@ -37,28 +39,28 @@ const Employees = () => {
     fullName: "Priscila Potion",
     designation: "Vue Developer",
     gender: "female",
-    teamName: "TeamC"
+    teamName: "TeamB"
   },
   {
     id: 6,
     fullName: "Charlie Brown",
     designation: "Node Developer",
     gender: "male",
-    teamName: "TeamA"
+    teamName: "TeamB"
   },
   {
     id: 7,
     fullName: "Diana Williams",
     designation: "JavaScript Developer",
     gender: "female",
-    teamName: "TeamB"
+    teamName: "TeamC"
   },
   {
     id: 8,
     fullName: "Edward Davis",
     designation: "JavaScript Developer",
     gender: "female",
-    teamName: "TeamB"
+    teamName: "TeamC"
   },
   {
     id: 9,
@@ -72,22 +74,35 @@ const Employees = () => {
     fullName: "Jill Bailey",
     designation: "Vite Developer",
     gender: "female",
-    teamName: "TeamA"
+    teamName: "TeamD"
   },
   {
     id: 11,
     fullName: "Smith Jones",
     designation: "Vite Developer",
     gender: "male",
-    teamName: "TeamB"
+    teamName: "TeamD"
   },
   {
     id: 12,
     fullName: "George Wilson",
     designation: "Designer",
     gender: "male",
-    teamName: "TeamC"
+    teamName: "TeamD"
   }]);
+
+
+  function handleTeamSelectionChange(event) {
+    setTeam(event.target.value);
+  }
+
+  function handleEmployeeCardClick(event) {
+    const transformedEmployees = employees.map((employee) => employees.id === parseInt(event.currentTarget.id)
+      ? (employee.teamName === selectedTeam) ? { ...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
+      : employee);
+
+    setEmployees(transformedEmployees);
+  }
 
   return (
 
@@ -95,10 +110,11 @@ const Employees = () => {
       <div className="row justify-content-center mt-3 mb-3">
         <div className="col-6">
           { /* teams code */}
-          <select className="form-select form-select-lg">
-            <option value="TeamA">Team A</option>
-            <option value="TeamB">Team B</option>
-            <option value="TeamC">Team C</option>
+          <select className="form-select form-select-lg" value={selectedTeam} onChange={handleTeamSelectionChange}>
+            <option value="TeamA">TeamA</option>
+            <option value="TeamB">TeamB</option>
+            <option value="TeamC">TeamC</option>
+            <option value="TeamD">TeamD</option>
           </select>
         </div>
       </div>
@@ -108,7 +124,7 @@ const Employees = () => {
           <div className="card-collection">
             {
               employees.map((employee) => (
-                <div id={employee.id.toString()} className="card m-2" style={{ cursor: "pointer" }}>
+                <div id={employee.id.toString()} className={(employee.teamName === selectedTeam ? 'card m-2 standout' : 'card m-2')} style={{ cursor: "pointer" }} onClick={handleEmployeeCardClick}>
 
                   {(employee.gender === 'male') ? <img src={maleProfile} className="card-img-top" />
                     : <img src={femaleProfile} className="card-img-top" />}
