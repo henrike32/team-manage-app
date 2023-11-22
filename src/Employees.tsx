@@ -58,7 +58,7 @@ const Employees = () => {
     fullName: "Edward Davis",
     designation: "JavaScript Developer",
     gender: "female",
-    teamName: "TeamA"
+    teamName: "TeamB"
   },
   {
     id: 9,
@@ -95,7 +95,7 @@ const Employees = () => {
       <div className="row justify-content-center mt-3 mb-3">
         <div className="col-6">
           { /* teams code */}
-          <select>
+          <select className="form-select form-select-lg">
             <option value="TeamA">Team A</option>
             <option value="TeamB">Team B</option>
             <option value="TeamC">Team C</option>
@@ -103,7 +103,7 @@ const Employees = () => {
         </div>
       </div>
 
-      <div className="col justify-content-center mt-3 mb-3">
+      <div className="row justify-content-center mt-3 mb-3">
         <div className="col-8">
           <div className="card-collection">
             {
