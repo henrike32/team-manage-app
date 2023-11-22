@@ -13,16 +13,16 @@ const Employees = () => {
   },
   {
     id: 2,
-    fullName: "Jill Bailey",
+    fullName: "Mana Points",
     designation: "Node Developer",
     gender: "female",
     teamName: "TeamA"
   },
   {
     id: 3,
-    fullName: "Bo Fes",
+    fullName: "Alice Johnson",
     designation: "JavaScript Developer",
-    gender: "male",
+    gender: "female",
     teamName: "TeamB"
   },
   {
@@ -34,23 +34,67 @@ const Employees = () => {
   },
   {
     id: 5,
-    fullName: "Priscila Arantes",
+    fullName: "Priscila Potion",
     designation: "Vue Developer",
     gender: "female",
     teamName: "TeamC"
   },
   {
     id: 6,
-    fullName: "Veriane L",
-    designation: "Designer",
+    fullName: "Charlie Brown",
+    designation: "Node Developer",
+    gender: "male",
+    teamName: "TeamA"
+  },
+  {
+    id: 7,
+    fullName: "Diana Williams",
+    designation: "JavaScript Developer",
     gender: "female",
+    teamName: "TeamB"
+  },
+  {
+    id: 8,
+    fullName: "Edward Davis",
+    designation: "JavaScript Developer",
+    gender: "female",
+    teamName: "TeamA"
+  },
+  {
+    id: 9,
+    fullName: "Fiona Miller",
+    designation: "Vite Developer",
+    gender: "female",
+    teamName: "TeamC"
+  },
+  {
+    id: 10,
+    fullName: "Jill Bailey",
+    designation: "Vite Developer",
+    gender: "female",
+    teamName: "TeamA"
+  },
+  {
+    id: 11,
+    fullName: "Smith Jones",
+    designation: "Vite Developer",
+    gender: "male",
+    teamName: "TeamB"
+  },
+  {
+    id: 12,
+    fullName: "George Wilson",
+    designation: "Designer",
+    gender: "male",
     teamName: "TeamC"
   }]);
 
   return (
+
     <main className="container">
       <div className="row justify-content-center mt-3 mb-3">
-        <div className="col-8">
+        <div className="col-6">
+          { /* teams code */}
           <select>
             <option value="TeamA">Team A</option>
             <option value="TeamB">Team B</option>
@@ -59,8 +103,7 @@ const Employees = () => {
         </div>
       </div>
 
-
-      <div className="row justify-content-center mt-3 mb-3">
+      <div className="col justify-content-center mt-3 mb-3">
         <div className="col-8">
           <div className="card-collection">
             {
@@ -70,7 +113,7 @@ const Employees = () => {
                   {(employee.gender === 'male') ? <img src={maleProfile} className="card-img-top" />
                     : <img src={femaleProfile} className="card-img-top" />}
 
-                  <div className="card-body">
+                  <div className="card-group">
                     <h5 className="card-title">Full Name: {employee.fullName}</h5>
                     <p className="card-text"><b>Designation:</b>{employee.designation}</p>
                   </div>
