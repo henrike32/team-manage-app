@@ -41,7 +41,7 @@ const [employees, setEmployees] = useState([{
 }, 
 {
   id:6, 
-  fullName: "Veriane Linda", 
+  fullName: "Veriane L", 
   designation:"Designer", 
   gender: "female", 
   teamName: "TeamC"
@@ -54,7 +54,7 @@ const [employees, setEmployees] = useState([{
           <div className="card-collection">
             {
               employees.map((employee) => (
-                <div id={employee.id} className="card">
+                <div id={employee.id.toString()} className="card">
                   <img src={femaleProfile} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title">Full Name: {employee.fullName}</h5>
