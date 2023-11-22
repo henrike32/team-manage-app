@@ -100,7 +100,7 @@ function App() {
   }
 
   function handleEmployeeCardClick(event) {
-    const transformedEmployees = employees.map((employee) => employees.id === parseInt(event.currentTarget.id)
+    const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
       ? (employee.teamName === selectedTeam) ? { ...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
       : employee);
 
@@ -108,7 +108,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <Header 
         selectedTeam={selectedTeam}
         teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}
@@ -116,10 +116,11 @@ function App() {
       <Employees 
         employees={employees}
         selectedTeam={selectedTeam}
+        handleEmployeeCardClick={handleEmployeeCardClick} 
         handleTeamSelectionChange={handleTeamSelectionChange}
-        handleEmployeeCardClick={handleEmployeeCardClick} />
+        />  
       <Footer />
-    </>
+    </div>
   )
 }
 
