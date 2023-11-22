@@ -1,4 +1,4 @@
-const Header = ({ selectedTeam, teamMemberCount }) => {
+const Header = ({selectedTeam, teamMemberCount}) => {
 
     return (
         <header className="container">
