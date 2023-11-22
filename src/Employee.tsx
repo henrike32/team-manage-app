@@ -1,64 +1,78 @@
 import { useState } from 'react'
 import femaleProfile from '/home/henrike32/team-manage-app/src/assets/images/femaleProfile.jpg'
-import maleProfile from './images/maleProfile.jpg'
+import maleProfile from '/home/henrike32/team-manage-app/src/assets/images/maleProfile.jpg'
 
-const Employees = ()  => {
+const Employees = () => {
 
-const [employees, setEmployees] = useState([{    
-  id:1, 
-  fullName: "Bob Jones", 
-  designation:"JavaScript Developer", 
-  gender: "male", 
-  teamName: "TeamA"
-},
-{
-  id:2,
-  fullName: "Jill Bailey", 
-  designation:"Node Developer", 
-  gender: "female", 
-  teamName: "TeamA"
-}, 
-{
-  id:3, 
-  fullName: "Bo Fes", 
-  designation:"JavaScript Developer", 
-  gender: "male", 
-  teamName: "TeamB"
-} , 
-{
-  id:4, 
-  fullName: "Tina Bones", 
-  designation:"JavaScript Developer", 
-  gender: "female", 
-  teamName: "TeamB"
-}, 
-{
-  id:5, 
-  fullName: "Priscila Arantes", 
-  designation:"Vue Developer", 
-  gender: "female", 
-  teamName: "TeamC"
-}, 
-{
-  id:6, 
-  fullName: "Veriane L", 
-  designation:"Designer", 
-  gender: "female", 
-  teamName: "TeamC"
-}]);
+  const [employees, setEmployees] = useState([{
+    id: 1,
+    fullName: "Bob Jones",
+    designation: "JavaScript Developer",
+    gender: "male",
+    teamName: "TeamA"
+  },
+  {
+    id: 2,
+    fullName: "Jill Bailey",
+    designation: "Node Developer",
+    gender: "female",
+    teamName: "TeamA"
+  },
+  {
+    id: 3,
+    fullName: "Bo Fes",
+    designation: "JavaScript Developer",
+    gender: "male",
+    teamName: "TeamB"
+  },
+  {
+    id: 4,
+    fullName: "Tina Bones",
+    designation: "JavaScript Developer",
+    gender: "female",
+    teamName: "TeamB"
+  },
+  {
+    id: 5,
+    fullName: "Priscila Arantes",
+    designation: "Vue Developer",
+    gender: "female",
+    teamName: "TeamC"
+  },
+  {
+    id: 6,
+    fullName: "Veriane L",
+    designation: "Designer",
+    gender: "female",
+    teamName: "TeamC"
+  }]);
 
   return (
     <main className="container">
-      <div className= "row justify-content-center mt-3 mb-3">
-        <div className= "col-8">
+      <div className="row justify-content-center mt-3 mb-3">
+        <div className="col-8">
+          <select>
+            <option value="TeamA">Team A</option>
+            <option value="TeamB">Team B</option>
+            <option value="TeamC">Team C</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div className="row justify-content-center mt-3 mb-3">
+        <div className="col-8">
           <div className="card-collection">
             {
               employees.map((employee) => (
-                <div id={employee.id.toString()} className="card">
-                  <img src={femaleProfile} className="card-img-top" />
+                <div id={employee.id.toString()} className="card m-2" style={{ cursor: "pointer" }}>
+
+                  {(employee.gender === 'male') ? <img src={maleProfile} className="card-img-top" />
+                    : <img src={femaleProfile} className="card-img-top" />}
+
                   <div className="card-body">
                     <h5 className="card-title">Full Name: {employee.fullName}</h5>
-                    <p className="card-text">Designation: {employee.designation}</p>
+                    <p className="card-text"><b>Designation:</b>{employee.designation}</p>
                   </div>
                 </div>
               ))
