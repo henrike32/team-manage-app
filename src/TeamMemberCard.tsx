@@ -1,5 +1,5 @@
-import maleProfile from './images/maleProfile.jpg';
-import femaleProfile from './images/femaleProfile.jpg';
+import maleProfile from '/home/henrike32/team-manage-app/src/assets/images/maleProfile.jpg';
+import femaleProfile from '/home/henrike32/team-manage-app/src/assets/images/femaleProfile.jpg';
 import { useContext } from 'react';
 import DataContext from './context/DataContext';
 
