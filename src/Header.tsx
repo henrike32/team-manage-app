@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import DataContext from './context/DataContext';
+import DataContext from '/home/henrike32/team-manage-app/src/context/DataContext.tsx';
+
 
 const Header = () => {
 
