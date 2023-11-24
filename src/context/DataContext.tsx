@@ -14,14 +14,14 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 2,
-    fullName: "Jill Bailey",
+    fullName: "Mirthes Rugani",
     designation: "Node Developer",
     gender: "female",
     teamName: "TeamA"
   },
   {
     id: 3,
-    fullName: "Gail Shepherd",
+    fullName: "Thábata Silva",
     designation: "Java Developer",
     gender: "female",
     teamName: "TeamA"
@@ -56,14 +56,14 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 8,
-    fullName: "Jessica Faye",
+    fullName: "Thayane Silva",
     designation: "API Developer",
     gender: "female",
     teamName: "TeamC"
   },
   {
     id: 9,
-    fullName: "Lita Stone",
+    fullName: "Nubia Mello",
     designation: "C++ Developer",
     gender: "female",
     teamName: "TeamC"
