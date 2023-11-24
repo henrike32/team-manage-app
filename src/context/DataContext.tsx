@@ -1,36 +1,12 @@
-import React, { createContext, useState, useEffect, FC, ReactNode, ChangeEvent, MouseEvent } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
-interface Employee {
-  id: number;
-  fullName: string;
-  designation: string;
-  gender: string;
-  teamName: string;
-}
+const DataContext = createContext({});
 
-interface DataContextValue {
-  employees: Employee[];
-  selectedTeam: string;
-  handleTeamSelectionChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  handleEmployeeCardClick: (event: MouseEvent<HTMLDivElement>) => void;
-  setTeam: React.Dispatch<React.SetStateAction<string>>;
-}
+export const DataProvider = ({ children }) => {
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB");
 
-interface DataProviderProps {
-  children: ReactNode;
-}
-
-const DataContext = createContext<DataContextValue | undefined>(undefined);
-
-const DataProvider: FC<DataProviderProps> = ({ children }) => {
-  const [selectedTeam, setTeam] = useState<string>(
-    JSON.parse(localStorage.getItem('selectedTeam')) || 'TeamB'
-  );
-
-  const [employees, setEmployees] = useState<Employee[]>(
-    JSON.parse(localStorage.getItem('employeeList')) || [
-  {
-      id: 1,
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [{
+    id: 1,
     fullName: "Bob Jones",
     designation: "JavaScript Developer",
     gender: "male",
@@ -122,35 +98,21 @@ const DataProvider: FC<DataProviderProps> = ({ children }) => {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam));
   }, [selectedTeam]);
 
-  const handleTeamSelectionChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+  function handleTeamSelectionChange(event) {
     setTeam(event.target.value);
-  };
+  }
 
-  const handleEmployeeCardClick = (event: MouseEvent<HTMLDivElement>): void => {
-    const transformedEmployees = employees.map((employee) =>
-      employee.id === parseInt(event.currentTarget.id)
-        ? employee.teamName === selectedTeam
-          ? { ...employee, teamName: '' }
-          : { ...employee, teamName: selectedTeam }
-        : employee
-    );
+  function handleEmployeeCardClick(event) {
+    const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
+      ? employee.teamName === selectedTeam ? { ...employee, teamName: '' }
+        : { ...employee, teamName: selectedTeam } : employee);
     setEmployees(transformedEmployees);
-  };
-
-  return (
-    <DataContext.Provider
-      value={{
-        employees,
-        selectedTeam,
-        handleTeamSelectionChange,
-        handleEmployeeCardClick,
-        setTeam,
-      }}
-    >
-      {children}
-    </DataContext.Provider>
-  );
+  }
+  return <DataContext.Provider value={{
+    employees, selectedTeam, handleTeamSelectionChange, handleEmployeeCardClick, setTeam
+  }}>
+    {children}
+  </DataContext.Provider>
 };
 
-export { DataContext, DataProvider };
-export type { Employee };
+export default DataContext;
