@@ -1,5 +1,5 @@
 
-import React, { FC, useState, useContext, MouseEvent } from 'react'; // Import FC and MouseEvent
+import { FC, useState, useContext, MouseEvent } from 'react'; // Import FC and MouseEvent
 import DataContext from './context/DataContext';
 
 interface TeamMember {
