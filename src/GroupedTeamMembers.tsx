@@ -1,12 +1,24 @@
-import { useState, useContext } from 'react';
+
+import React, { FC, useState, useContext, MouseEvent } from 'react'; // Import FC and MouseEvent
 import DataContext from './context/DataContext';
 
-const GroupedTeamMembers = () => {
+interface TeamMember {
+  id: string;
+  teamName: string;
+  fullName: string;
+  designation: string;
+}
+
+interface GroupedTeamMembersProps {
+  // Add type annotations for props
+}
+
+const GroupedTeamMembers: FC<GroupedTeamMembersProps> = () => {
   const { employees, selectedTeam, setTeam } = useContext(DataContext);
-  const [groupedEmployees, setGroupedData] = useState(groupTeamMembers());
+  const [groupedEmployees, setGroupedData] = useState<Array<{ team: string; members: TeamMember[]; collapsed: boolean }>>(groupTeamMembers());
 
-
-  function groupTeamMembers() {
+  function groupTeamMembers(): Array<{ team: string; members: TeamMember[]; collapsed: boolean }> {
+  
     var teams = [];
 
     var teamAMembers = employees.filter((employee) => employee.teamName === 'TeamA');
@@ -27,11 +39,10 @@ const GroupedTeamMembers = () => {
 
     return teams;
   }
-  function handleTeamClick(event) {
-    var newGroupedData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id ? { ...groupedData, collapsed: !groupedData.collapsed } : groupedData);
+  function handleTeamClick(event: MouseEvent<HTMLHeadingElement>): void {
+    const newGroupedData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id ? { ...groupedData, collapsed: !groupedData.collapsed } : groupedData);
     setGroupedData(newGroupedData);
     setTeam(event.currentTarget.id);
-
   }
 
   return (
@@ -62,6 +73,7 @@ const GroupedTeamMembers = () => {
         );
       })}
     </main>
-  )
-}
-export default GroupedTeamMembers
+  );
+};
+
+export default GroupedTeamMembers;
