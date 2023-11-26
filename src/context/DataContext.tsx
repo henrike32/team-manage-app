@@ -28,7 +28,7 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 4,
-    fullName: "Sam Reynolds",
+    fullName: "Samwise Gamgi",
     designation: "React Developer",
     gender: "male",
     teamName: "TeamB"
@@ -56,7 +56,7 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 8,
-    fullName: "Thayane Silva",
+    fullName: "Thaynara Silva",
     designation: "API Developer",
     gender: "female",
     teamName: "TeamC"
@@ -70,14 +70,14 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 10,
-    fullName: "Daniel Young",
+    fullName: "Daniela Young",
     designation: "Python Developer",
-    gender: "male",
+    gender: "female",
     teamName: "TeamD"
   },
   {
     id: 11,
-    fullName: "Adrian Jacobs",
+    fullName: "Adriano Jacobs",
     designation: "Vue Developer",
     gender: "male",
     teamName: "TeamD"
