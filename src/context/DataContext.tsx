@@ -7,21 +7,21 @@ export const DataProvider = ({ children }) => {
 
   const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [{
     id: 1,
-    fullName: "Bob Jones",
+    fullName: "Bobe Jones",
     designation: "JavaScript Developer",
     gender: "male",
     teamName: "TeamA"
   },
   {
     id: 2,
-    fullName: "Mirthes Rugani",
+    fullName: "Mirthis Rugani",
     designation: "Node Developer",
     gender: "female",
     teamName: "TeamA"
   },
   {
     id: 3,
-    fullName: "Thábata Silva",
+    fullName: "Thabata Silvas",
     designation: "Java Developer",
     gender: "female",
     teamName: "TeamA"
@@ -42,7 +42,7 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 6,
-    fullName: "Sarah Blake",
+    fullName: "Sarah Blakes",
     designation: "SQL Server DBA",
     gender: "female",
     teamName: "TeamB"
@@ -56,7 +56,7 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 8,
-    fullName: "Thaynara Silva",
+    fullName: "Thaynara Cruz",
     designation: "API Developer",
     gender: "female",
     teamName: "TeamC"
@@ -77,19 +77,20 @@ export const DataProvider = ({ children }) => {
   },
   {
     id: 11,
-    fullName: "Adriano Jacobs",
+    fullName: "Adrian Jacobs",
     designation: "Vue Developer",
     gender: "male",
     teamName: "TeamD"
   },
   {
     id: 12,
-    fullName: "Devin Monroe",
+    fullName: "Devin Monroes",
     designation: "Graphic Designer",
     gender: "male",
     teamName: "TeamD"
-  }]);
-
+  },
+]);
+                                                               
   useEffect(() => {
     localStorage.setItem('employeeList', JSON.stringify(employees));
   }, [employees]);
